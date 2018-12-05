@@ -14,22 +14,17 @@ import (
 const length = 4
 
 // Complete the miniMaxSum function below.
-func miniMaxSum(arr []int32) {
-	var ints []int
-
-	for _, v := range arr {
-		ints = append(ints, int(v))
-	}
-	sort.Ints(ints)
+func miniMaxSum(arr []int) {
+	sort.Ints(arr)
 
 	var min, max int
 
 	for i := 0; i < length; i++ {
-		min += ints[i]
+		min += arr[i]
 	}
 
 	for i := len(arr) - 1; i >= len(arr)-length; i-- {
-		max += ints[i]
+		max += arr[i]
 	}
 
 	fmt.Printf("%v %v\n", min, max)
@@ -40,12 +35,12 @@ func main() {
 
 	arrTemp := strings.Split(readLine(reader), " ")
 
-	var arr []int32
+	var arr []int
 
 	for i := 0; i < 5; i++ {
 		arrItemTemp, err := strconv.ParseInt(arrTemp[i], 10, 64)
 		checkError(err)
-		arrItem := int32(arrItemTemp)
+		arrItem := int(arrItemTemp)
 		arr = append(arr, arrItem)
 	}
 
